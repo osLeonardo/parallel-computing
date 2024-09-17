@@ -1,6 +1,10 @@
+
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+    	String directoryPath = "C:\\Users\\Natanael\\Documents\\dev\\parallel-computing\\datasets\\dataset_g";
+        String nameToFind = "Edward Martin";
+        
+        FindersCompare.execute(directoryPath, nameToFind);
     }
 }

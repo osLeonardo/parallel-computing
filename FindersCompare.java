@@ -3,18 +3,20 @@ import java.util.concurrent.ExecutionException;
 
 import types.Response;
 
+import javax.swing.*;
+
 public class FindersCompare {
-	public static void execute(String directoryPath, String nameToFind) {
+	public static void execute(String directoryPath, String nameToFind, JTextArea logTextArea) {
         
         long start = new Date().getTime();
         Response response = FindWordThroughDirectory.execute(
         		directoryPath, 
         		nameToFind
 		);
-        System.out.println("Response: " + response);
-        System.out.println("Tempo (ms) sem paralelismo: " + (new Date().getTime() - start));
+        logTextArea.append(response.toString());
+        logTextArea.append("\nTempo (ms) sem paralelismo: " + (new Date().getTime() - start));
         
-        System.out.println("---------------------------------");
+        logTextArea.append("\n---------------------------------");
         
         start = new Date().getTime();
         try {
@@ -27,10 +29,10 @@ public class FindersCompare {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-        System.out.println("Response: " + response);
-        System.out.println("Tempo (ms) com paralelismo (2 threads): " + (new Date().getTime() - start));
+        logTextArea.append("\nResponse: " + response.toString());
+        logTextArea.append("\nTempo (ms) com paralelismo (2 threads): " + (new Date().getTime() - start));
         
-        System.out.println("---------------------------------");
+        logTextArea.append("\n---------------------------------");
         
         start = new Date().getTime();
         try {
@@ -43,10 +45,10 @@ public class FindersCompare {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-        System.out.println("Response: " + response);
-        System.out.println("Tempo (ms) com paralelismo (4 threads): " + (new Date().getTime() - start));
+        logTextArea.append("\nResponse: " + response.toString());
+        logTextArea.append("\nTempo (ms) com paralelismo (4 threads): " + (new Date().getTime() - start));
         
-        System.out.println("---------------------------------");
+        logTextArea.append("\n---------------------------------");
         
         start = new Date().getTime();
         try {
@@ -59,10 +61,10 @@ public class FindersCompare {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-        System.out.println("Response: " + response);
-        System.out.println("Tempo (ms) com paralelismo (8 threads): " + (new Date().getTime() - start));
+        logTextArea.append("\nResponse: " + response.toString());
+        logTextArea.append("\nTempo (ms) com paralelismo (8 threads): " + (new Date().getTime() - start));
         
-        System.out.println("---------------------------------");
+        logTextArea.append("\n---------------------------------");
         
         start = new Date().getTime();
         try {
@@ -75,10 +77,10 @@ public class FindersCompare {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-        System.out.println("Response: " + response);
-        System.out.println("Tempo (ms) com paralelismo (2 threads com busca reversa): " + (new Date().getTime() - start));
+        logTextArea.append("\nResponse: " + response.toString());
+        logTextArea.append("\nTempo (ms) com paralelismo (2 threads com busca reversa): " + (new Date().getTime() - start));
         
-        System.out.println("---------------------------------");
+        logTextArea.append("\n---------------------------------");
         
         start = new Date().getTime();
         try {
@@ -91,10 +93,10 @@ public class FindersCompare {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-        System.out.println("Response: " + response);
-        System.out.println("Tempo (ms) com paralelismo (4 threads com busca reversa): " + (new Date().getTime() - start));
+        logTextArea.append("\nResponse: " + response.toString());
+        logTextArea.append("\nTempo (ms) com paralelismo (4 threads com busca reversa): " + (new Date().getTime() - start));
         
-        System.out.println("---------------------------------");
+        logTextArea.append("\n---------------------------------");
         
         start = new Date().getTime();
         try {
@@ -107,7 +109,7 @@ public class FindersCompare {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-        System.out.println("Response: " + response);
-        System.out.println("Tempo (ms) com paralelismo (8 threads com busca reversa): " + (new Date().getTime() - start));
+        logTextArea.append("\nResponse: " + response.toString());
+        logTextArea.append("\nTempo (ms) com paralelismo (8 threads com busca reversa): " + (new Date().getTime() - start));
 	}
 }
